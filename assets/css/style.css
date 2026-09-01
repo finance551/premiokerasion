@@ -273,7 +273,7 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 900px) { .menu-overlay__inner { grid-template-columns: 1fr; gap: var(--space-3); } }
 
 /* --- footer -------------------------------------------------------------- */
-.site-footer { background: var(--nero); color: var(--crema); padding-block: var(--space-5) var(--space-3); margin-top: var(--space-6); }
+.site-footer { background: var(--marrone); color: var(--crema); padding-block: var(--space-5) var(--space-3); margin-top: var(--space-6); }
 /* niente gap quando la pagina termina con una banda colorata a tutta larghezza */
 main:has(> .section--malva:last-child) + .site-footer,
 main:has(> .section--dark:last-child) + .site-footer,
@@ -284,10 +284,10 @@ main:has(> .section--azzurro:last-child) + .site-footer { margin-top: 0; }
 .footer__brand { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-3); }
 .footer__logos { display: flex; flex-direction: column; gap: var(--space-3); }
 .footer__logos > div { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-.footer__logos .eyebrow { margin-bottom: 0; text-align: left; }
+.footer__logos .eyebrow { margin-bottom: 0; text-align: left; color: var(--crema); }
 .footer__logo-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: nowrap; }
 .footer__logos img { height: 72px; width: auto; background: var(--crema); border-radius: 6px; padding: 6px; }
-.footer__legal { display: flex; justify-content: flex-end; gap: var(--space-2); flex-wrap: wrap; font-family: var(--font-mono); font-size: var(--step--1); border-top: 1px solid #2A2B25; padding-top: var(--space-3); }
+.footer__legal { display: flex; justify-content: flex-end; gap: var(--space-2); flex-wrap: wrap; font-family: var(--font-mono); font-size: var(--step--1); border-top: 1px solid var(--crema); padding-top: var(--space-3); }
 .footer__legal--top { border-top: 0; padding-top: 0; }
 @media (max-width: 700px) {
   .footer__row { grid-template-columns: 1fr; }
@@ -363,12 +363,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 40;
   width: 3rem; height: 3rem; border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--marrone); color: var(--crema);
+  background: var(--malva); color: var(--crema);
   font-family: var(--font-mono); font-size: 1.1rem; text-decoration: none;
   box-shadow: 0 4px 14px rgba(7, 8, 2, 0.18);
   transition: opacity 0.3s ease, background 0.25s ease;
 }
-.back-to-top:hover { background: var(--malva); color: var(--crema); }
+.back-to-top:hover { background: var(--marrone); color: var(--crema); }
 .back-to-top--hidden { opacity: 0; pointer-events: none; }
 
 /* --- lenis smooth scroll ---------------------------------------------------- */

@@ -47,7 +47,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--crema);
-  color: var(--nero);
+  color: var(--marrone);
   font-family: var(--font-serif);
   font-weight: 300;
   font-size: var(--step-0);
@@ -151,15 +151,15 @@ a:hover { color: var(--rosa); }
 .card--crema .card__title { color: var(--malva); }
 .card--marrone { background: var(--marrone); color: var(--crema); }
 .card--marrone .card__title { color: var(--crema); }
-.card--flower::after {
-  /* line-art floreale in sovrimpressione, stile pag. 19 del PDF brand */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../img/brand/flower-lineart.svg") no-repeat right -3rem top -3rem / 22rem auto;
-  opacity: 0.35;
-  pointer-events: none;
-}
+
+/* --- card delle 4 sezioni (Narrativa/Saggistica/Poesia/Premio speciale): foto floreale in sfondo --- */
+.card--sezione.card--malva { background: url("../img/brand/card-narrativa.jpg") center/cover; color: var(--marrone); }
+.card--sezione.card--malva .card__title { color: var(--marrone); }
+.card--sezione.card--azzurro { background: url("../img/brand/card-saggistica.jpg") center/cover; }
+.card--sezione.card--crema { background: url("../img/brand/card-poesia.jpg") center/cover; border: none; }
+.card--sezione.card--marrone { background: url("../img/brand/card-chiesa.jpg") center/cover; color: var(--marrone); }
+.card--sezione.card--marrone .card__title { color: var(--marrone); }
+.card--sezione .card__text { color: var(--marrone); }
 
 /* --- griglie ------------------------------------------------------------ */
 .grid { display: grid; gap: var(--space-2); }
@@ -246,8 +246,6 @@ a:hover { color: var(--rosa); }
 /* --- menu overlay -------------------------------------------------------- */
 .menu-overlay {
   position: fixed; inset: 0; z-index: 60; background: var(--malva); color: var(--crema);
-  background-image: url("../img/brand/flower-lineart.svg");
-  background-repeat: no-repeat; background-position: right -6rem bottom -6rem; background-size: 34rem;
   opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s;
   overflow-y: auto;
 }
@@ -260,17 +258,19 @@ body.menu-open { overflow: hidden; }
   border-radius: 999px; padding: 0.55em 1.4em; cursor: pointer;
 }
 .menu-overlay__inner {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);
   padding-block: var(--space-6);
 }
 .menu-overlay__group { display: flex; flex-direction: column; gap: 0.4rem; }
-.menu-overlay__group .eyebrow { color: var(--crema); }
+.menu-overlay__group .eyebrow { color: var(--crema); font-size: var(--step-0); }
 .menu-overlay__group a {
-  font-family: var(--font-serif); font-weight: 200; font-size: var(--step-2);
+  font-family: var(--font-serif); font-weight: 200; font-size: calc(var(--step-2) * 1.3);
   color: var(--crema); text-decoration: none; line-height: 1.25;
 }
 .menu-overlay__group a:hover { color: var(--azzurro); font-style: italic; }
-@media (max-width: 900px) { .menu-overlay__inner { grid-template-columns: 1fr; gap: var(--space-3); } }
+@media (max-width: 900px) {
+  .menu-overlay__inner { grid-template-columns: 1fr; gap: var(--space-3); }
+}
 
 /* --- footer -------------------------------------------------------------- */
 .site-footer { background: var(--marrone); color: var(--crema); padding-block: var(--space-5) var(--space-3); margin-top: var(--space-6); }
@@ -301,6 +301,7 @@ main:has(> .section--azzurro:last-child) + .site-footer { margin-top: 0; }
 .hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(242,237,235,0) 40%, rgba(242,237,235,0.9) 100%); }
 .hero__content { position: relative; z-index: 1; padding: var(--space-4) clamp(1rem, 4vw, 2.5rem) var(--space-4); }
 .hero__content h1 { max-width: 12ch; color: var(--marrone); }
+.hero__content .eyebrow { font-size: var(--step-0); color: var(--malva); font-weight: 600; }
 .hero__scroll { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; }
 
 /* --- home: sezioni -------------------------------------------------------- */
@@ -425,10 +426,18 @@ html.lenis, html.lenis body { height: auto; }
   border: 1px solid currentColor; border-radius: 999px; padding: 0.35em 1.1em;
 }
 .card--paper {
-  background: url("../img/brand/flower-silhouette.svg") no-repeat right -2.5rem center / 15rem auto, #FBF9F8;
+  background: #FBF9F8;
   border: 1px solid #E5DDD9; color: var(--marrone);
 }
 .card--paper .card__title { color: var(--marrone); }
+.card--paper .card__label { color: var(--malva); }
+.card--paper .card__foot { color: var(--malva); }
+.card--paper .card__foot:hover { color: var(--marrone); }
+
+.contact-cards { gap: var(--space-4); }
+.contact-cards .card { padding: 40px; min-height: 15rem; }
+.contact-cards .card__title { align-self: start; justify-self: start; margin-top: var(--space-2); }
+.contact-cards .card__text { margin-top: -0.3rem; }
 
 /* foto con bande colorate verticali (mockup "Premio Letterario") */
 .media-stripes { position: relative; }
